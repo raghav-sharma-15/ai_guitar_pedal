@@ -22,44 +22,63 @@ These commands assume you’re in the repository root (`AI_GUITAR_PEDAL/`) and h
    source venv/bin/activate
    pip install --upgrade pip
    pip install -r requirements.txt
-Download GTZAN dataset
-From Kaggle:
-https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification
-Unzip into data/gtzan, so you have e.g.
-data/gtzan/blues/blues.00000.wav
-data/gtzan/classical/classical.00000.wav
-…
-Preprocess audio
-Hand-crafted features (MLP):
-python scripts/preprocess_audio.py features
-# → data/features.npy
-Log-mel spectrograms (CNN):
-python scripts/preprocess_audio.py spectrogram
-# → data/specs.npz
-Train models
-MLP on features:
-python scripts/train_model.py --model-type mlp --data data/features.npy
-# → models/mlp_best.pth, models/mlp_last.pth, models/scaler.pkl
-CNN on spectrograms:
-python scripts/train_model.py --model-type cnn --data data/specs.npz
-# → models/cnn_best.pth, models/cnn_last.pth
-Offline inference
-MLP pipeline:
-python main.py \
-  --input data/gtzan/blues/blues.00000.wav \
-  --output out_mlp.wav \
-  --model models/mlp_best.pth \
-  --scaler models/scaler.pkl
-CNN pipeline:
-python main_cnn.py \
-  --input data/gtzan/blues/blues.00000.wav \
-  --output out_cnn.wav \
-  --model models/cnn_best.pth
-Live pedal
-python live_guitar_pedal.py
-Use --device "<Your Audio Device Name>" if you have multiple USB interfaces.
-🗂️ Directory Structure
+   ```
 
+2. **Download GTZAN dataset**  
+   - From Kaggle:  
+     https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification  
+   - Unzip into `data/gtzan`, so you have e.g.  
+     ```
+     data/gtzan/blues/blues.00000.wav
+     data/gtzan/classical/classical.00000.wav
+     …
+     ```
+
+3. **Preprocess audio**  
+   - Hand-crafted features (MLP):  
+     ```bash
+     python scripts/preprocess_audio.py features
+     # → data/features.npy
+     ```  
+   - Log-mel spectrograms (CNN):  
+     ```bash
+     python scripts/preprocess_audio.py spectrogram
+     # → data/specs.npz
+     ```
+
+4. **Train models**  
+   - **MLP** on features:  
+     ```bash
+     python scripts/train_model.py --model-type mlp --data data/features.npy
+     # → models/mlp_best.pth, models/mlp_last.pth, models/scaler.pkl
+     ```  
+   - **CNN** on spectrograms:  
+     ```bash
+     python scripts/train_model.py --model-type cnn --data data/specs.npz
+     # → models/cnn_best.pth, models/cnn_last.pth
+     ```
+
+5. **Offline inference**  
+   - **MLP** pipeline:  
+     ```bash
+     python main.py        --input data/gtzan/blues/blues.00000.wav        --output out_mlp.wav        --model models/mlp_best.pth        --scaler models/scaler.pkl
+     ```  
+   - **CNN** pipeline:  
+     ```bash
+     python main_cnn.py        --input data/gtzan/blues/blues.00000.wav        --output out_cnn.wav        --model models/cnn_best.pth
+     ```
+
+6. **Live pedal**  
+   ```bash
+   python live_guitar_pedal.py
+   ```  
+   Use `--device "<Your Audio Device Name>"` if you have multiple USB interfaces.
+
+---
+
+## 🗂️ Directory Structure
+
+```
 AI_GUITAR_PEDAL/
 ├── data/
 │   ├── gtzan/             # GTZAN WAV files (download manually)
@@ -83,16 +102,21 @@ AI_GUITAR_PEDAL/
 ├── live_guitar_pedal.py   # Real-time audio FX loop
 ├── requirements.txt       # Python dependencies
 └── README.md              # This file
-🤝 Contributing
+```
 
-Fork the repository.
-Create a topic branch:
-git checkout -b feat/YourFeature
-Commit your changes:
-git commit -m "Add your description"
-Push and open a Pull Request.
+---
+
+## 🤝 Contributing
+
+1. Fork the repository.  
+2. Create a topic branch (`git checkout -b feat/YourFeature`)  
+3. Commit your changes (`git commit -m "Add feature"`)  
+4. Push and open a Pull Request.
+
 Please follow project code style and update documentation/tests as needed.
 
-📝 License
+---
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+## 📝 License
+
+This project is licensed under the MIT License — see the `LICENSE` file for details.
