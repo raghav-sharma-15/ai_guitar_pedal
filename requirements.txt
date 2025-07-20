@@ -1,0 +1,9 @@
+numpy
+scipy
+librosa
+soundfile
+torch           # or torch-cpu if you’re on CPU only
+scikit-learn
+joblib
+sounddevice
+matplotlib      # for any plotting in notebooks
