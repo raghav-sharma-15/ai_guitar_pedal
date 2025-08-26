@@ -11,11 +11,13 @@
 - Clean → Rock FX: [docs/audio/clean_rock_before.wav](docs/audio/clean_rock_before.wav) → [docs/audio/clean_rock_after.wav](docs/audio/clean_rock_after.wav)  
 - Jazz Riff → Warmth/Chorus: [docs/audio/jazz_before.wav](docs/audio/jazz_before.wav) → [docs/audio/jazz_after.wav](docs/audio/jazz_after.wav)
 
+```mermaid
 flowchart LR
   G[Guitar/Input] --> I[Audio Interface / Mic]
   I --> C[Real-time Inference (Genre Classifier)]
   C --> FX[Effect Router (Overdrive • Chorus • EQ • Reverb)]
   FX --> O[Output / Headphones / Amp]
+  ```mermaid
 
 
 ```bash
