@@ -13,10 +13,12 @@
 
 ```mermaid
 flowchart LR
-  G[Guitar/Input] --> I[Audio Interface / Mic]
-  I --> C[Real-time Inference (Genre Classifier)]
-  C --> FX[Effect Router (Overdrive • Chorus • EQ • Reverb)]
-  FX --> O[Output / Headphones / Amp]
+  G[ Guitar / Input ]
+  I[ Audio Interface or Mic ]
+  C[ Real-time Inference / Genre Classifier ]
+  FX[ Effect Router: Overdrive, Chorus, EQ, Reverb ]
+  O[ Output / Headphones / Amp ]
+  G --> I --> C --> FX --> O
   ```mermaid
 
 
