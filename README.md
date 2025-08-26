@@ -18,8 +18,9 @@ flowchart LR
   C[ Real-time Inference / Genre Classifier ]
   FX[ Effect Router: Overdrive, Chorus, EQ, Reverb ]
   O[ Output / Headphones / Amp ]
+
   G --> I --> C --> FX --> O
-  ```mermaid
+```
 
 
 ```bash
