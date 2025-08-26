@@ -1,4 +1,26 @@
-# AI Guitar Pedal
+# AI Guitar Pedal — Real-time Genre-Aware FX
+
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![Audio](https://img.shields.io/badge/Audio-Real--time-informational.svg)
+![ML](https://img.shields.io/badge/ML-CNN%20%7C%20MLP-informational.svg)
+
+**TL;DR:** Real-time, genre-aware guitar pedal — classifies input and routes tailored FX on the fly.
+
+## 10-sec Demo (Headphones 🎧)
+- Clean → Rock FX: [docs/audio/clean_rock_before.wav](docs/audio/clean_rock_before.wav) → [docs/audio/clean_rock_after.wav](docs/audio/clean_rock_after.wav)  
+- Jazz Riff → Warmth/Chorus: [docs/audio/jazz_before.wav](docs/audio/jazz_before.wav) → [docs/audio/jazz_after.wav](docs/audio/jazz_after.wav)
+
+flowchart LR
+  G[Guitar/Input] --> I[Audio Interface / Mic]
+  I --> C[Real-time Inference<br/>(Genre Classifier)]
+  C --> FX[Effect Router<br/>(Overdrive | Chorus | EQ | Reverb)]
+  FX --> O[Output / Headphones / Amp]
+
+```bash
+pip install -r requirements.txt
+python live_guitar_pedal.py  # set --device if needed
+
 
 A Python-based, real-time guitar effects pedal powered by machine-learning genre classification.  
 Supports two pipelines:
