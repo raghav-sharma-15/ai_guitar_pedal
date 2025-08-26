@@ -4,6 +4,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Audio](https://img.shields.io/badge/Audio-Real--time-informational.svg)
 ![ML](https://img.shields.io/badge/ML-CNN%20%7C%20MLP-informational.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16949239.svg)](https://doi.org/10.5281/zenodo.16949239)
 
 **TL;DR:** Real-time, genre-aware guitar pedal — classifies input and routes tailored FX on the fly.
 
