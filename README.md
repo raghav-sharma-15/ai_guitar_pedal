@@ -13,9 +13,10 @@
 
 flowchart LR
   G[Guitar/Input] --> I[Audio Interface / Mic]
-  I --> C[Real-time Inference<br/>(Genre Classifier)]
-  C --> FX[Effect Router<br/>(Overdrive | Chorus | EQ | Reverb)]
+  I --> C[Real-time Inference (Genre Classifier)]
+  C --> FX[Effect Router (Overdrive • Chorus • EQ • Reverb)]
   FX --> O[Output / Headphones / Amp]
+
 
 ```bash
 pip install -r requirements.txt
